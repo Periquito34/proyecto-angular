@@ -1,0 +1,54 @@
+<div class="wrapper">
+    <div *ngIf="!loading" class="body">
+        <div class="container mt-4">
+            <div class="card">
+                <div class="card-body">
+                    <span class="h3">Lista de Usuarios </span>
+                    <table class="table table-striped mt-5">
+                        <thead>
+                          <tr>
+                            <th>User</th>
+                            <th>Email Address</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>Periquito</td>
+                            <td>andrespro2004@gmail.com</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Periquito</td>
+                            <td>andrespro2004@gmail.com</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Periquito</td>
+                            <td>andrespro2004@gmail.com</td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+
+                        <ul>
+                          <li class="text" *ngFor="let item of items$ | async">
+                            {{item.name}}
+                          </li>
+                        </ul>
+                      </table>
+        
+                </div>
+            </div>
+        </div>        
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+</div>
+
+
+
+
+
+
+
+
+

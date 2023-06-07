@@ -1,0 +1,54 @@
+<div class="wrapper">
+    <div *ngIf="!loading" class="body">
+    <form (ngSubmit)="login()" [formGroup]="userLogin">
+        <h1>Login</h1>
+        <br>
+        <div>
+            <input type="email" formControlName="email" placeholder="Email Address" style="margin-top: 40px;">
+            <br>
+            <span *ngIf="userLogin.get('email')?.hasError('required') && userLogin.get('email')?.touched" class="text-danger errorLabel">
+                <strong>Email Address</strong> required
+            </span>
+
+            <span *ngIf="userLogin.get('email')?.hasError('email') && userLogin.get('email')?.touched" class="text-danger errorLabel">
+                <strong>Email Address</strong> invalid
+            </span>
+        </div>
+        <br>
+
+        <div>
+            <input type="password" formControlName="password" placeholder="Password">
+            <br>
+            <span *ngIf="userLogin.get('password')?.hasError('required') && userLogin.get('password')?.touched" class="text-danger errorLabel">
+                <strong>Password</strong> required
+            </span>
+        </div>
+        <br>
+
+        <button class="button" type="submit">Login</button>
+
+        <p>You dont have an account? <a routerLink="/register">Register Here</a></p>
+       
+        <p>Did you forget your password? <a routerLink="/password">Recover password</a></p>
+    </form>
+
+    <button (click)="loginWithGoogle()" type="button" id="googleLogin" class="btn btn-info google"><i class="bi bi-google"></i>
+                        
+    </button>
+
+    <button (click)="loginWithFacebook()" type="button" id="facebookLogin" class="btn btn-info facebook">
+        <i class="bi bi-facebook"></i>
+    </button>
+
+    <button (click)="loginWithGitHub()" type="button" id="githubLogin" class="btn btn-info github">
+        <i class="bi bi-github"></i>
+    </button>
+
+    <button type="button" id="twitterLogin" class="btn btn-info twitter">
+        <i class="bi bi-twitter"></i>
+    </button>
+
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+</div>
+

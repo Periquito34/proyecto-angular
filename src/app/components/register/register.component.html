@@ -1,0 +1,59 @@
+<div class="wrapper">
+    <div *ngIf="!loading" class="body">
+    <form (ngSubmit)="register()" [formGroup]="userRegister">
+
+        <h1>Register</h1>
+
+        <div class="form-floating mb-3">
+            <input type="text" formControlName="username" placeholder="UserName" style="margin-top: 60px;">
+            <br>
+            <span *ngIf="userRegister.get('username')?.hasError('required') && userRegister.get('username')?.touched" class="text-danger errorLabel">
+                <strong>Username</strong> required
+            </span>
+        </div>
+        
+
+        <div class="form-floating mb-3">
+            <input type="email" formControlName="email" placeholder="Email Address">
+            <br>
+            <span *ngIf="userRegister.get('email')?.hasError('required') && userRegister.get('email')?.touched" class="text-danger errorLabel">
+                <strong>Email Address</strong> required
+            </span>
+
+            <span *ngIf="userRegister.get('email')?.hasError('email') && userRegister.get('email')?.touched" class="text-danger errorLabel">
+                <strong>Email Address</strong> invalid
+            </span>
+            
+        </div>
+        
+
+        <div class="form-floating mb-3">
+            <input type="password" formControlName="password" placeholder="Password">
+            <br>
+
+            <span *ngIf="userRegister.get('password')?.hasError('required') && userRegister.get('password')?.touched" class="text-danger errorLabel">
+                <strong>Password</strong> required
+            </span>
+
+            <span *ngIf="userRegister.get('password')?.hasError('minlength') && userRegister.get('password')?.touched" class="text-danger errorLabel">
+                <strong>Password</strong> must have minimum of 8 characters
+            </span>
+        </div>
+    
+
+        <div class="form-floating mb-3">
+            <input type="password"  formControlName="confirmPassword" placeholder="Confirm Password">
+        </div>
+
+
+        <button [disabled]="userRegister.invalid" type="submit">Register</button>
+
+        <p> Do you already have an account? <a routerLink="/login">Login</a></p>
+    
+
+    </form>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+</div>
+
+

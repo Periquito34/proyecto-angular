@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <div *ngIf="!loading" class="body">
+        <h1>Welcome</h1>
+        <p *ngIf="!dataUser">No se ha iniciado sesión</p>
+        <p *ngIf="dataUser && dataUser.displayName">{{ dataUser.displayName }}</p>
+        <p *ngIf="dataUser && !dataUser.displayName">{{ dataUser.email }}</p>
+        <button type="button" (click)="logOut()">logOut</button>
+        <button type="button" (click)="crud()">CRUD</button>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+</div>

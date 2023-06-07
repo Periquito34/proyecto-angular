@@ -1,0 +1,13 @@
+<div class="wrapper">
+    <div *ngIf="!loading" class="body">
+    <form [formGroup]="emailVerify" (ngSubmit)="verify()">
+        <h1>Verify Email</h1>
+        <p>Your email has not been verified yet, you will not be able to log in until it is verified</p>
+        <br>
+        <button routerLink="/Login" type="button">Back</button>
+        <br>
+
+    </form>
+</div>
+<app-spinner *ngIf="loading"></app-spinner>
+</div>

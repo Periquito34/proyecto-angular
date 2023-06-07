@@ -1,1 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
+html, body{
+    height: 100%;
+}
+
+.form-floating{
+    text-align: start;
+}
+
+.errorLabel{
+    margin-left: 5px;
+font-size: 10px;
+}
